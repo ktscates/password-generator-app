@@ -1,0 +1,167 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #08070b;
+  font-family: "JetBrains Mono", monospace;
+  margin: 0;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  color: #817d92;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.password-output {
+  background-color: #24232c;
+  color: #e6e5ea;
+  padding: 1.5rem;
+  font-size: 1.2em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25.125vw;
+}
+
+.password-output span {
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.password-output button {
+  background: none;
+  border: none;
+  color: #e6e5ea;
+  cursor: pointer;
+}
+
+.password-generator {
+  background-color: #24232c;
+  padding: 1.5rem;
+  width: 25.125vw;
+  color: #e6e5ea;
+}
+
+.progress_bar {
+  margin-bottom: 2rem;
+}
+
+#length-label {
+  float: right;
+  font-size: 2em;
+  color: #a4ffaf;
+  font-weight: bold;
+}
+
+.progress_bar label,
+.progress_bar input {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 1rem 0;
+  font-size: 1em;
+  place-items: center;
+  font-weight: 600;
+}
+
+.progress_bar input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #18171f;
+  margin: 1rem 0;
+}
+
+.progress_bar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #a4ffaf;
+  cursor: pointer;
+}
+
+.progress_bar input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #a4ffaf;
+  cursor: pointer;
+}
+
+.character-types {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+.strength {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  place-items: center;
+  margin: 25px 0px 30px 0px;
+  padding: 20px 25px;
+  background-color: #18171f;
+}
+
+.strength span {
+  text-transform: uppercase;
+  color: #817d92;
+  font-weight: 500;
+}
+
+.strength h6 {
+  font-size: 1.5em;
+  color: #e6e5ea;
+  font-weight: 500;
+  display: flex;
+  place-items: center;
+  margin: 0px 10px 0px 0px;
+  text-transform: uppercase;
+}
+
+.strength-bar {
+  display: flex;
+  gap: 5px;
+}
+
+.strength-bar div {
+  width: 7px;
+  height: 30px;
+  background-color: #444;
+  border: #e6e5ea;
+  display: flex;
+  place-items: center;
+}
+
+.strength-bar .filled {
+  background-color: #a4ffaf;
+}
+
+.generate-btn {
+  width: 100%;
+  background-color: #a4ffaf;
+  color: #24232c;
+  border: none;
+  padding: 20px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  place-items: center;
+  gap: 1.5rem;
+}
