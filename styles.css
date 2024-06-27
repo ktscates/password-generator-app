@@ -86,7 +86,7 @@ h1 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #a4ffaf;
+  background: #e6e5ea;
   cursor: pointer;
 }
 
@@ -94,7 +94,7 @@ h1 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #a4ffaf;
+  background: #e6e5ea;
   cursor: pointer;
 }
 
@@ -165,3 +165,47 @@ h1 {
   place-items: center;
   gap: 1.5rem;
 }
+
+/* Media Queries for Responsiveness */
+/* @media (max-width: 1440px) {
+  .password-output,
+  .password-generator {
+    width: 25.125vw;
+  }
+} */
+
+/* @media (max-width: 1440px) {
+  .password-output,
+  .password-generator {
+    width: 60vw;
+  }
+}
+
+@media (min-width: 375px) {
+  .password-output,
+  .password-generator {
+    width: 80vw;
+    padding: 1rem;
+  }
+
+  #length-label {
+    font-size: 1.5em;
+  }
+
+  .password-output span {
+    font-size: 1.2em;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+
+  .strength h6 {
+    font-size: 1em;
+  }
+
+  .strength-bar div {
+    width: 7px;
+    height: 20px;
+  }
+} */
