@@ -146,7 +146,19 @@ h1 {
   place-items: center;
 }
 
-.strength-bar .filled {
+.filled.too-weak {
+  background-color: #f64a4a;
+}
+
+.filled.weak {
+  background-color: #fb7c58;
+}
+
+.filled.medium {
+  background-color: #f8cd65;
+}
+
+.filled.strong {
   background-color: #a4ffaf;
 }
 

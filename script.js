@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       this.passwordDisplay.textContent = `${password}`;
+      this.calculatePasswordStrength(password);
     };
 
     createPassword = (
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     calculatePasswordStrength = () => {
+      const password = this.passwordDisplay.textContent;
       const strengthBar = this.strengthBar;
       const strength = { weaker: 0, weak: 0, medium: 0, strong: 0 };
 
@@ -91,15 +93,35 @@ document.addEventListener("DOMContentLoaded", () => {
       if (/\d/.test(password)) strength.medium++;
       if (/[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password)) strength.strong++;
 
-      const totalStrength = Object.values(strength).reduce((a, b) => a + b);
+      const totalStrength = Object.values(strength).reduce((a, b) => a + b, 0);
+      console.log(totalStrength);
 
       strengthBar.forEach((bar, index) => {
         if (index < totalStrength) {
+          console.log(index);
           bar.classList.add("filled");
         } else {
           bar.classList.remove("filled");
         }
       });
+
+      const strengthLabel = document.querySelector(".strength h6");
+      switch (totalStrength) {
+        case 1:
+          strengthLabel.textContent = "Too Weak";
+          break;
+        case 2:
+          strengthLabel.textContent = "Weak";
+          break;
+        case 3:
+          strengthLabel.textContent = "Medium";
+          break;
+        case 4:
+          strengthLabel.textContent = "Strong";
+          break;
+        default:
+          strengthLabel.textContent = "";
+      }
     };
   }
   new PersonGenerator();
