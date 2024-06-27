@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.addEventListeners();
     }
 
-    addEventListeners() {
+    addEventListeners = () => {
       this.lengthInput.addEventListener(
         "input",
         this.updateLengthLabel.bind(this)
@@ -24,63 +24,48 @@ document.addEventListener("DOMContentLoaded", () => {
         "click",
         this.generatePassword.bind(this)
       );
-    }
 
-    updateLengthLabel() {
+      this.copyIcon.addEventListener("click", this.copyToClipboard.bind(this));
+    };
+
+    updateLengthLabel = () => {
       const lengthLabel = document.getElementById("length-label");
       lengthLabel.textContent = this.lengthInput.value;
-      // console.log(this.lengthInput);
-    }
+    };
 
-    generatePassword() {
-      const isUppercaseChecked = this.uppercase.checked;
-      const isLowercaseChecked = this.lowercase.checked;
-      const isNumbersChecked = this.numbers.checked;
-      const isSymbolsChecked = this.symbols.checked;
-      const passwordLength = this.lengthInput.value;
+    generatePassword = () => {
+      const { uppercase, lowercase, numbers, symbols, lengthInput } = this;
+
+      const passwordLength = lengthInput.value;
 
       const password = this.createPassword(
-        isUppercaseChecked,
-        isLowercaseChecked,
-        isNumbersChecked,
-        isSymbolsChecked,
+        uppercase.checked,
+        lowercase.checked,
+        numbers.checked,
+        symbols.checked,
         passwordLength
       );
 
-      this.passwordDisplay.textContent = password;
+      this.passwordDisplay.textContent = `${password}`;
+    };
 
-      // console.log("uppercase", isUppercaseChecked);
-      // console.log("lowercase", isLowercaseChecked);
-      // console.log("numbers", isNumbersChecked);
-      // console.log("symbols", isSymbolsChecked);
-      // console.log("length", passwordLength);
-    }
-
-    createPassword(
-      isUppercaseChecked,
-      isLowercaseChecked,
-      isNumbersChecked,
-      isSymbolsChecked,
-      passwordLength
-    ) {
+    createPassword = (
+      isUppercaseChecked = false,
+      isLowercaseChecked = false,
+      isNumbersChecked = false,
+      isSymbolsChecked = false,
+      passwordLength = 10
+    ) => {
       const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
       const lowercase = "abcdefghijklmnopqrstuvwxyz";
       const numbers = "0123456789";
       const symbols = "!@#$%^&*()_+[]{}|;:,.<>?";
 
       let character = "";
-      if (isUppercaseChecked) {
-        character += uppercase;
-      }
-      if (isLowercaseChecked) {
-        character += lowercase;
-      }
-      if (isNumbersChecked) {
-        character += numbers;
-      }
-      if (isSymbolsChecked) {
-        character += symbols;
-      }
+      if (isUppercaseChecked) character += uppercase;
+      if (isLowercaseChecked) character += lowercase;
+      if (isNumbersChecked) character += numbers;
+      if (isSymbolsChecked) character += symbols;
 
       let password = "";
       for (let i = 0; i < passwordLength; i++) {
@@ -89,8 +74,33 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
       return password;
-      // console.log(password);
-    }
+    };
+
+    copyToClipboard = () => {
+      const password = this.passwordDisplay.textContent;
+      navigator.clipboard.writeText(password);
+      alert("Password copied to clipboard!");
+    };
+
+    calculatePasswordStrength = () => {
+      const strengthBar = this.strengthBar;
+      const strength = { weaker: 0, weak: 0, medium: 0, strong: 0 };
+
+      if (/[a-z]/.test(password)) strength.weaker++;
+      if (/[A-Z]/.test(password)) strength.weak++;
+      if (/\d/.test(password)) strength.medium++;
+      if (/[!@#$%^&*()_+[\]{}|;:,.<>?]/.test(password)) strength.strong++;
+
+      const totalStrength = Object.values(strength).reduce((a, b) => a + b);
+
+      strengthBar.forEach((bar, index) => {
+        if (index < totalStrength) {
+          bar.classList.add("filled");
+        } else {
+          bar.classList.remove("filled");
+        }
+      });
+    };
   }
   new PersonGenerator();
 });
