@@ -83,16 +83,16 @@ h1 {
 .progress_bar input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #e6e5ea;
   cursor: pointer;
 }
 
 .progress_bar input[type="range"]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #e6e5ea;
   cursor: pointer;
@@ -144,6 +144,13 @@ h1 {
   border: #e6e5ea;
   display: flex;
   place-items: center;
+}
+
+.strength-block {
+  width: 20px;
+  height: 10px;
+  margin-right: 5px;
+  background-color: #e0e0e0; /* Default color */
 }
 
 .filled.too-weak {

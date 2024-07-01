@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.lowercase = document.querySelector('input[value="lowercase"]');
       this.numbers = document.querySelector('input[value="numbers"]');
       this.symbols = document.querySelector('input[value="symbols"]');
-      this.strengthBar = document.querySelectorAll("strength-bar div");
+      this.strengthBar = document.querySelectorAll(".strength-bar div");
       this.generateBtn = document.querySelector(".generate-btn");
 
       this.addEventListeners();
@@ -97,11 +97,24 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(totalStrength);
 
       strengthBar.forEach((bar, index) => {
+        bar.className = "";
+        bar.classList.add("strength-block"); // Reset class
         if (index < totalStrength) {
-          console.log(index);
           bar.classList.add("filled");
-        } else {
-          bar.classList.remove("filled");
+          switch (totalStrength) {
+            case 1:
+              bar.classList.add("too-weak");
+              break;
+            case 2:
+              bar.classList.add("weak");
+              break;
+            case 3:
+              bar.classList.add("medium");
+              break;
+            case 4:
+              bar.classList.add("strong");
+              break;
+          }
         }
       });
 
