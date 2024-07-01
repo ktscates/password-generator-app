@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/57e6ecc8-9eda-43d2-ad22-470e0bdae39d/deploy-status)](https://app.netlify.com/sites/ktscates-password-generator/deploys)
+
 # Password Generator App
 
 ## Overview
