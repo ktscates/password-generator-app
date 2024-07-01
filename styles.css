@@ -186,21 +186,14 @@ h1 {
 }
 
 /* Media Queries for Responsiveness */
-/* @media (max-width: 1440px) {
+@media (max-width: 768px) {
   .password-output,
   .password-generator {
-    width: 25.125vw;
-  }
-} */
-
-/* @media (max-width: 1440px) {
-  .password-output,
-  .password-generator {
-    width: 60vw;
+    width: 70vw;
   }
 }
 
-@media (min-width: 375px) {
+@media (max-width: 480px) {
   .password-output,
   .password-generator {
     width: 80vw;
@@ -227,4 +220,4 @@ h1 {
     width: 7px;
     height: 20px;
   }
-} */
+}
